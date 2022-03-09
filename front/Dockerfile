@@ -4,7 +4,7 @@ ENV NODE_ENV development
 WORKDIR /app
 # Cache and Install dependencies
 COPY package.json /app
-RUN npm install
+RUN npm i
 # Copy app files
 COPY . /app
 # Expose port
