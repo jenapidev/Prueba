@@ -4,7 +4,7 @@ services:
   backend:
     build:
       context: ./api
-      dockerfile: ./dockerfile
+      dockerfile: ./Dockerfile
     image: node-docker
     volumes: 
       - .:/api
@@ -15,7 +15,7 @@ services:
   frontend:
     build:
       context: ./front
-      dockerfile: ./dockerfile
+      dockerfile: ./Dockerfile
     image: node-docker-front
     volumes: 
       - ./front:/app
