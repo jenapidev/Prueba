@@ -27,11 +27,13 @@ const handleError = (response, msg="Hubo un error al consignar la data") => {
 }
 
 app.get('/files/data', async (request, response) => {
+    const fileName = request.query?.fileName
     try {
         const result = await axios({...options, url: `${baseUrl}/secret/files`});
         let finalData = []
         const { files } = result.data
-        for (const file of files) {
+        const queryFiles = fileName ? files.filter(file => file.includes(fileName)) : files
+        for (const file of queryFiles) {
             const parsedFile = await getFileData(file)
             if (parsedFile) {
                 finalData.push(parsedFile)
@@ -46,7 +48,7 @@ app.get('/files/data', async (request, response) => {
 app.get('/files/list', async (request, response) => {
     try {
         const result = await axios({...options, url: `${baseUrl}/secret/files`})
-        response.json(result.data)
+        response.json(result.data.files)
     } catch (e) {
         handleError(e.message)
     }
