@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     image: node-docker
     volumes: 
-      - .:/api
+      - ./api/src:/app/src
     ports:
       - 3001:3001
     container_name: prueba-backend

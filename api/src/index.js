@@ -2,7 +2,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { options, baseUrl } = require('./utils')
-const { getFileData } = require('./parseFunction')
+const { getFileData } = require('../parseFunction')
 
 const app = express()
 
@@ -18,6 +18,7 @@ const corsOpts = {
       'Content-Type',
     ],
 };
+
 
 app.use(cors(corsOpts));
 
