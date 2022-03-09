@@ -5,5 +5,6 @@ An API that serves data and it's respective front end client
 
 ## Getting started
 run:
-```docker-compose up
+```
+docker-compose up
 ```
