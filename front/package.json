@@ -31,7 +31,8 @@
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "dev": "webpack serve --config config/webpack.config.js"
+    "dev": "webpack serve --config config/webpack.config.js",
+    "start": "webpack --config config/webpack.config.js"
   },
   "keywords": [],
   "author": "",

@@ -1,12 +1,12 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const { HotModuleReplacementPlugin } = require("webpack");
+const { merge } = require("webpack-merge");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const { HotModuleReplacementPlugin } = require("webpack");
 
-/** @type {import('webpack').Configuration} */
+
 module.exports = {
-  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "../dist"),
@@ -33,20 +33,19 @@ module.exports = {
   resolve: {
     extensions: [".js", ".json", ".jsx"],
   },
+  mode: "development",
   devServer: {
     port: 3000,
-    contentBase: "../dist",
-    open: "chrome",
+    host: '0.0.0.0',
     hot: true,
   },
   target: "web",
-  devtool: "eval-source-map",
   plugins: [
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-    }),
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin()
-  ],
+    }),],
+  devtool: "eval-source-map",
 };

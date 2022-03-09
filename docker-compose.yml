@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./api
+      dockerfile: ./dockerfile
+    image: node-docker
+    volumes: 
+      - .:/api
+    ports:
+      - 3001:3001
+    container_name: prueba-backend
+    command: npm run dev
+  frontend:
+    build:
+      context: ./front
+      dockerfile: ./dockerfile
+    image: node-docker-front
+    volumes: 
+      - ./front:/app
+    ports:
+      - 3000:3000
+    container_name: prueba-front
+    command: npm run dev
