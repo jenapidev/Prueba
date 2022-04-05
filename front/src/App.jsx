@@ -9,6 +9,8 @@ export const App = (props) => {
     const [inputTimeOut, setInputTimeOut] = useState(null)
     const [loading, setLoading] = useState(false)
 
+
+
     const handleGetAndLoadData = async (fileName=null) => {
         try {
             const response = await axios.get('http://localhost:3001/files/data', { params: { fileName }})
@@ -44,7 +46,7 @@ export const App = (props) => {
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
-                    <th>File Name</th>
+                    <th>Filssssse Name</th>
                     <th>Text</th>
                     <th>Number</th>
                     <th>Hex</th>
